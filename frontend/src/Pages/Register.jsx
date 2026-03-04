@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +7,7 @@ const Register = () => {
   return (
     <div className="flex flex-col items-center justify-center p-10 h-full w-full">
       <h1 className="text-3xl font-bold mb-4 text-gray-800">Registration</h1>
+      
       <InputGroup icon={faUser} placeholder="Username" type="text" />
       <InputGroup icon={faEnvelope} placeholder="Email" type="email" />
       <InputGroup icon={faLock} placeholder="Password" type="password" />
@@ -32,11 +32,7 @@ const InputGroup = ({ icon, placeholder, type }) => (
     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
       <FontAwesomeIcon icon={icon} />
     </div>
-    <input
-      type={type}
-      placeholder={placeholder}
-      className="block w-full pl-10 pr-3 py-3 bg-gray-100 border-none rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition"
-    />
+    <input type={type} placeholder={placeholder} className="block w-full pl-10 pr-3 py-3 bg-gray-100 border-none rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition" />
   </div>
 );
 
