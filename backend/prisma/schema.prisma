@@ -1,0 +1,34 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String   // bcrypt hashed
+  createdAt DateTime @default(now())
+}
+
+model Student {
+  id         Int          @id @default(autoincrement())
+  collegeId  String       @unique
+  fullName   String
+  email      String
+  attendance Attendance[]
+}
+
+model Attendance {
+  id        Int      @id @default(autoincrement())
+  studentId Int
+  student   Student  @relation(fields: [studentId], references: [id])
+  date      DateTime @db.Date
+  sessions  Json     // Array of { checkIn, checkOut } objects
+  createdAt DateTime @default(now())
+
+  @@unique([studentId, date])
+}
