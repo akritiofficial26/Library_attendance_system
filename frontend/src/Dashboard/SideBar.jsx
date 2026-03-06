@@ -15,7 +15,6 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
     navigate('/Login');
   };
 
-  // Helper function for consistent button styling
   const getButtonClass = (tabName) => {
     const baseClass = "w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-200";
     return selectedTab === tabName
@@ -26,7 +25,6 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div className="w-16 bg-[#351aa2] border-r flex flex-col items-center py-6 justify-between h-full">
       <div className="flex flex-col gap-6">
-        
         <button
           onClick={() => setSelectedTab("dashboard")}
           title="Dashboard"
@@ -36,7 +34,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         </button>
 
         <button
-          onClick={() => setSelectedTab("performance")}
+          onClick={() => navigate("/performance")}
           title="Performance"
           className={getButtonClass("performance")}
         >
@@ -44,7 +42,6 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         </button>
       </div>
       <div className="flex flex-col gap-4">
-        
         <button
           onClick={handleLogout}
           title="Logout"
