@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 const Register = () => {
   return (
@@ -11,18 +10,13 @@ const Register = () => {
       <InputGroup icon={faUser} placeholder="Username" type="text" />
       <InputGroup icon={faEnvelope} placeholder="Email" type="email" />
       <InputGroup icon={faLock} placeholder="Password" type="password" />
+      <InputGroup icon={faLock} placeholder="Confirm Password" type="password" />
       
       <button className="mt-6 bg-indigo-600 text-white px-12 py-3 rounded-lg font-semibold uppercase tracking-wider hover:bg-indigo-700 transition w-full">
         Register
       </button>
       
-      <span className="text-gray-500 text-sm mt-4 mb-2">or register with social platforms</span>
-      <div className="flex space-x-3">
-        <SocialIcon icon={faGoogle} />
-        <SocialIcon icon={faFacebookF} />
-        <SocialIcon icon={faGithub} />
-        <SocialIcon icon={faLinkedinIn} />
-      </div>
+      <span className="text-red-500 text-sm mt-4 mb-2">or register with gmail</span>
     </div>
   );
 };
