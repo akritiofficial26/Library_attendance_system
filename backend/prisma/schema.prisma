@@ -1,5 +1,6 @@
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -10,7 +11,7 @@ model Admin {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  password  String   // bcrypt hashed
+  password  String
   createdAt DateTime @default(now())
 }
 
@@ -27,7 +28,7 @@ model Attendance {
   studentId Int
   student   Student  @relation(fields: [studentId], references: [id])
   date      DateTime @db.Date
-  sessions  Json     // Array of { checkIn, checkOut } objects
+  sessions  Json
   createdAt DateTime @default(now())
 
   @@unique([studentId, date])
