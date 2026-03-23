@@ -2,7 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import router from './src/routes/authRoutes.js';
+import authRouter from './src/routes/authRoutes.js';
+import attendanceRouter from './src/routes/attendanceRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -17,8 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //routes
-app.use('/api/auth', router); //user registration and login routes
+app.use('/api/auth', authRouter);
+app.use('/api/attendance', attendanceRouter);
 
+//port listening
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 })

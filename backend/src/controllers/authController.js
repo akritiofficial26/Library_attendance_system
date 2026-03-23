@@ -1,6 +1,7 @@
 import prisma from '../config/prisma.config.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+
 //admin registeration
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
